@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Library App</title>
+        <link href="./output.css" rel="stylesheet">
+    </head>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="./script.js" async></script>
+    <body class="bg-bg_color light  h-screen ">
+        <div class="w-full h-full grid grid-rows-[50px_1fr] transition-all duration-700 ">
+            <div id="header" class="bg-primary grid grid-cols-[1fr_2fr_1fr] row-span-1 border-t-[1px] border-b-[1px] border-contrast align-middle">
+                <div class="">
+
+                </div>
+                <div class=" flex justify-center items-center gap-2">
+                    <i data-feather="book-open" class="inline-block align-middle stroke-[3px] size-7 text-secondary"></i>
+                    <p class="text-xl text-secondary font-semibold align-middle inline text-center"> My Library</p>
+                </div>
+                <div class="flex mr-4 justify-end items-center">
+                    <button title="display" class="bg-primary text-icon_color flex justify-center items-center h-9 gap-2 px-3 hover:bg-hover_color  active:bg-secondary active:text-white rounded-[10px]">
+                        <p class=" font-semibold text-center text-sm">
+                            Display
+                        </p>
+                        <p class=" font-semibold text-center text-sm">
+                            <i id="test" data-feather="chevron-down" class="inline-block align-middle stroke-[2px] size-4 transition-all rotate-0"></i>
+                        </p>
+                    </button>
+                    <div id="dropdown" class="z-2  transition-all opacity-0 hidden absolute border-[1px] border-contrast rounded-[10px] top-5 right-4 flex-col gap-3 items-center p-3 bg-primary">
+                        <button title="light mode"  class=" gap-3 flex flex-row h-9 w-36 self-center items-center justify-start rounded-[10px] px-3 hover:bg-hover_color active:text-white active:bg-secondary text-icon_color">
+                            <i data-feather="sun" class="inline-block stroke-[3px] size-5"></i>
+                            <p class="  font-semibold text-center text-sm">Light Mode</p>
+                          </button>
+                          <button title="os mode"  class=" gap-3 flex flex-row h-9 w-36 self-center items-center justify-start rounded-[10px] px-3 hover:bg-hover_color active:text-white active:bg-secondary text-icon_color">
+                            <i data-feather="monitor" class="inline-block stroke-[3px] size-5"></i>
+                            <p class="  font-semibold text-center text-sm">OS Mode</p>
+                          </button>
+                          <button title="dark mode"  class=" gap-3 flex flex-row h-9 w-36 self-center items-center justify-start rounded-[10px] px-3 hover:bg-hover_color active:text-white active:bg-secondary text-icon_color">
+                            <i data-feather="moon" class="inline-block stroke-[3px] size-5"></i>
+                            <p class="  font-semibold text-center text-sm">Dark Mode</p>
+                          </button>
+                    </div>
+                </div>
+            </div>
+            <div  class="bg-primary row-span-1 overflow-y-scroll md:p-10 p-6">
+                <div id="card_area" class="grid md:grid-cols-[repeat(auto-fill,14rem)] grid-cols-[repeat(auto-fill,minmax(11rem,1fr))] md:gap-3 gap-2 overflow-scroll">
+                    <div id="new" class="md:h-[20.5rem] h-[17rem] flex justify-center items-center">
+                        <button class="group bg-primary border-[1px] border-contrast rounded-[10px] md:w-52 md:h-80 w-[calc(100%-1rem)] h-64 hover:scale-[1.025]  hover:border-hover_color_2 [transition:all_150ms,transform_300ms] flex justify-center items-center flex-col text-icon_color active:border-secondary active:text-secondary">
+                            <i data-feather="plus-circle" class="stroke-[3px] size-8 group-hover:rotate-[360deg] transition-transform group-active:rotate-[-360deg] "></i>
+                            <p class="font-semibold text-xl">New</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="viewing" class="  border-[1px] border-contrast rounded-[10px] bg-primary h-[90%] w-[90%] max-w-96 top-[50%] left-[50%] -translate-x-1/2 -translate-y-full hidden opacity-0  absolute overflow-y-scroll transition-all">
+
+            <div class="flex justify-center align-middle py-6 border-b-[1px] border-contrast sticky top-0 backdrop-blur-md ">
+                <p class="font-semibold text-xl text-secondary">Book Details</p>
+                <button title="exit_v" class="backdrop-blur-md text-icon_color absolute top-2 right-2  flex justify-center items-center h-7 w-7 hover:bg-hover_color  active:bg-red-500 active:text-white rounded-[10px]">
+                    <i data-feather="x" class="inline-block align-middle stroke-[2px] size-4"></i>
+                </button>
+            </div>
+            <div class="my-3 mx-6 py-3 flex flex-col gap-6">
+                <div class="">
+                    <p id="read_title" class="line-clamp-1 text-sm"><b>Title:</b></p>
+                </div>
+                <div>
+                    <p id="read_author" class="line-clamp-1 text-sm""><b>Author:</b></p>
+                </div>
+                <div>
+                    <p id="read_pages" class="line-clamp-1 text-sm""><b>Pages:</b></p>
+                </div>
+                <div>
+                    <p id="read_read" class="line-clamp-1 text-sm""><b>Read:</b></p>
+                </div>
+                <div>
+                    <p id="read_id" lass="line-clamp-1 text-sm""><b>Id:</b></p>
+                </div>
+                <div>
+                    <p id="read_summary" class="text-sm""><b>Summary:</b></p>
+                </div>
+            </div>
+        </div>
+        <div id="menu" class="  border-[1px] border-contrast rounded-[10px] bg-primary h-[90%] w-[90%] max-w-96 top-[50%] left-[50%] -translate-x-1/2 -translate-y-full opacity-0 hidden absolute overflow-y-scroll transition-all">
+
+            <div class="flex justify-center align-middle py-6 border-b-[1px] border-contrast sticky top-0 backdrop-blur-md ">
+                <p class="font-semibold text-xl text-secondary">Book Details</p>
+                <button title="exit" class="backdrop-blur-md text-icon_color absolute top-2 right-2  flex justify-center items-center h-7 w-7 hover:bg-hover_color  active:bg-red-500 active:text-white rounded-[10px]">
+                    <i data-feather="x" class="inline-block align-middle stroke-[2px] size-4"></i>
+                </button>
+            </div>
+            <form class="my-3 mx-6 py-3 flex flex-col gap-6 ">
+            
+                <div class="flex flex-col gap-2 text-text_color">
+                    <label idfor="title" class=""> Title</label>
+                    <input required type="text" name="title" id="title"  class="" placeholder="Title">
+                </div>
+                <div class="flex flex-col gap-2 text-text_color">
+                    <label for="author" class=""> Author</label>
+                    <input required type="text" name="author"  id="author" placeholder="Author" class="">
+                </div>
+                <div class="flex flex-col gap-2 text-text_color">
+                    <label for="pages" class=""> Number of Pages</label>
+                    <input type="number" min="1" name="pages"  id="pages" placeholder="Pages" class="">
+                </div>
+                <div class="flex flex-col gap-3 text-text_color">
+                    <label for="sum" class=""> Summary</label>
+                    <textarea name="sum" id="sum" placeholder="This book is about ..." class="h-32"></textarea>
+                </div>
+                <div class="flex flex-col gap-3 text-text_color">
+                    <label class="">Have you read this book?</label>
+                    <div class="grid grid-cols-2 gap-4 justify-start mx-1">
+                        <div><input required type="radio" value="Yes" name="yes-no" class="inline mr-2"><label for="yes-no">Yes</label></div>
+                        <div><input required type="radio" value="No" name="yes-no" class="inline mr-2"><label for="yes-no">No</label></div>
+
+                    </div> 
+                </div>
+                <div class="grid grid-cols-2 gap-4 ">
+                    <button title="add" type="submit "class="border-[#8BC34A] text-icon_color flex justify-center items-center h-9 gap-2 px-3 hover:bg-[#8BC34A20] border-[1px] active:bg-[#8BC34A] active:text-white rounded-[10px]">
+                        <p id="add_text"class= "font-semibold text-center text-sm">
+                            Add
+                        </p>
+                    </button>
+                    <button title="cancel" type="button" class="border-[#b92326] text-icon_color flex justify-center items-center h-9 gap-2 px-3 hover:bg-[#b9232633] border-[1px] active:bg-[#b92326] active:text-white rounded-[10px]">
+                        <p class=" font-semibold text-center text-sm">
+                            Cancel
+                        </p>
+                    </button>
+                </div>
+            </form>  
+
+        </div>
+        <script>
+            feather.replace();
+          </script>
+    </body>
+</html>

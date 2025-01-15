@@ -1,28 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+input, textarea{
+    @apply block;
+    @apply border-[1px];
+    @apply border-contrast;
+    @apply p-2;
+    @apply rounded-[10px];
+    @apply max-w-96;
+    @apply valid:border-[#8BC34A];
+    @apply valid:bg-[#8BC34A20];
+    @apply invalid:border-[#b92326];
+    @apply invalid:bg-[#b9232633];
+    @apply focus:invalid:border-[#b92326];
+    @apply focus:invalid:bg-[#b9232633];
+    @apply focus:valid:border-[#8BC34A];
+    @apply focus:valid:bg-[#8BC34A20];
+    @apply focus:outline-none;
+    @apply placeholder-shown:bg-primary;
+    @apply placeholder-shown:border-contrast;
+}
+body * {
+    transition-property: background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
 .light
 {
-    --bg:#F0F0F0;
-    --secondary: #02998f;
+    --bg:#f5f5f5;
+    --secondary: #1171BB;
     --primary:#FFFFFF;
     --hover:#F4F4F4;
+    --hover_2:#949494;
     --contrast:#D2D2D2;
     --text: #000000;
     --shadow:#0000001A;
     --icon: #707070;
+    
 }
 
 .dark
 {
     --bg:#222222;
     /* --bg:#121212; */
-    --secondary: #03B5A9;
+    --secondary: #329BEC;
     --primary:#2B2b2b;
     /* --primary:#222222; */
-    --contrast: #727272;
+    --contrast: #505050;
     --hover:#3b3b3b;
+    --hover_2:#7b7b7b;
     --text: #FFFFFF; 
     --shadow:#00000055;
     --icon: #ffffff;
